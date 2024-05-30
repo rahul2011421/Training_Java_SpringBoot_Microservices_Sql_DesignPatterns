@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script type="application/javascript">
+        const user = {};
+        let usernameField;
+        let descField;
+        let btnElement;
+        let feedbackElement;
+
+        function register() {
+            console.log("inside register");
+            usernameField = document.getElementById("username");
+            descField = document.getElementById("description");
+            btnElement = document.getElementById("submitBtn");
+            feedbackElement = document.getElementById("feedback");
+            console.log("btn", btnElement);
+            console.log("desc", descField);
+            console.log("feedback", feedbackElement);
+            btnElement.addEventListener("click", submitHandler);
+        }
+
+        function submitHandler(event) {
+            event.preventDefault();
+            console.log("inside submit handler");
+            user.description = descField.value;
+            user.username = usernameField.value;
+            console.log("user object=", user);
+            feedbackElement.innerHTML = "<h3>" + user.username + "-" + user.description + "</h3>";
+        }
+
+        window.addEventListener("DOMContentLoaded", register);
+
+
+    </script>
+
+</head>
+
+<body>
+    <h1>Click button to change data</h1>
+
+
+    <form>
+        <div>
+            <label>username</label>
+            <input id="username" name="username">
+        </div>
+
+        <div>
+            <label>About yourself</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+
+        <button id="submitBtn" type="button">Submit</button>
+
+
+    </form>
+    <div id="feedback">
+
+    </div>
+
+</body>
+
+</html>
+<!--
+DOMContentLoaded
+-->
